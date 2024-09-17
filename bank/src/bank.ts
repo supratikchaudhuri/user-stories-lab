@@ -61,6 +61,9 @@ export default class Bank {
     if (!account) {
       throw new Error("Account not found");
     }
+    if (amount <= 0) {
+      throw new Error("Invalid amount");
+    }
     account.balance += amount;
     return account;
   }
@@ -78,6 +81,9 @@ export default class Bank {
     }
     if (account.balance < amount) {
       throw new Error("Insufficient balance");
+    }
+    if (amount <= 0) {
+      throw new Error("Invalid amount");
     }
     account.balance -= amount;
     return account;

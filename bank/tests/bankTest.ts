@@ -92,3 +92,27 @@ try {
     console.log("Scenario 9 failed");
   }
 }
+
+// scenario 10: failed deposit with invalid amount
+try {
+  bank.deposit("2938298", -100);
+  console.log("Scenario 10 failed");
+} catch (e) {
+  if (e instanceof Error && e.message === "Invalid amount") {
+    console.log("Scenario 10 passed");
+  } else {
+    console.log("Scenario 10 failed");
+  }
+}
+
+// scenario 11: failed withdrawal with invalid amount
+try {
+  bank.withdraw("2938298", -100);
+  console.log("Scenario 11 failed");
+} catch (e) {
+  if (e instanceof Error && e.message === "Invalid amount") {
+    console.log("Scenario 11 passed");
+  } else {
+    console.log("Scenario 11 failed");
+  }
+}
